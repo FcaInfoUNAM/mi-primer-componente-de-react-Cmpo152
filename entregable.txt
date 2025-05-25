@@ -1,0 +1,23 @@
+2.2 Responde la siguiente pregunta en un archivo llamado entregable.txt ¿De dónde sale la etiqueta Navigation?
+Sale de: import { Navigation } from './Navigation'; 
+Esto significa que el componente Navigation está definido en el archivo Navigation.js o Navigation.jsx, ubicado en el mismo directorio que App.jsx.
+
+2.3 Si te das cuenta recibe 2 parametros, explica en entregable.txt cómo se recibieron esos parametros
+En App.jsx los valores de los parametros srcImg y alt se pasan al componente Navigation
+- srcImg recibe la variable logo, que se importa desde ./assets/react.svg. Esto significa que el componente Navigation usará esta imagen como el valor de la etiqueta <img src={srcImg} />.
+- alt recibe el valor "Logo", que el componente puede usar para el atributo alt de la imagen.
+
+2.6 Revisa nuevamente App.jsx y explica en entregable.txt ¿donde se importan los archivos css, las imagenes y cómo es que se importa un componente?
+Los archivos CSS se importan agregandolos al inicio del código de la siguiente manera:
+import './App.css';
+import './grid.css';
+
+Las imagenes se importan de la misma forma. Ejemplo:
+import logo from './assets/react.svg';
+
+Finalmente, los componentes se importan desde otros archivos .jsx utilizando {} para los exportados como named exports:
+import { Navigation } from './Navigation';
+import { Grid } from './Grid';
+Esto significa que Navigation y Grid están definidos en sus respectivos archivos y exportados con export function NombreDelComponente() Y luego, se pueden utilizar en App.jsx dentro del return:
+<Navigation srcImg={logo} alt="Logo" items={navigationItems} />
+<Grid items={navigationItems} />
